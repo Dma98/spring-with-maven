@@ -4,7 +4,7 @@ pipeline {
     }
 
     tools {
-        gradle 'maven-default'
+        maven 'maven-default'
         dockerTool 'docker-default'
     }
 
