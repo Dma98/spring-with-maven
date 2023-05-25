@@ -19,12 +19,6 @@ pipeline {
 
     stages {
 
-        stage('Clean') {
-            steps {
-                cleanWs()
-            }
-
-        }
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Dma98/spring-with-maven'
@@ -59,7 +53,10 @@ pipeline {
                 sh 'docker run -d -p 8091:8080 --name=maven-app ${IMAGE_NAME}'
             }
         }
-
+    }
+    
+    post {
+        cleanWs()
     }
 }
 
